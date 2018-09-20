@@ -1,0 +1,54 @@
+@import "variables";
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+
+    @media only screen and (max-width: 414px) {
+        font-size: 14px;
+    }
+}
+
+body {
+    font-family: 'Roboto', 'Helvetica', sans-serif;
+    font-size: 1.4rem;
+    color: $color_text_default;
+    background-color: $color_bg;
+}
+
+input:focus,
+textarea:focus,
+button:focus,
+select:focus {
+    outline:none;
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1 + h2 {
+    margin: 0;
+}
+
+.title, .subtitle{
+    text-align: center;
+    width: 100%;
+}
+
+.title {
+    &.nbm {
+        margin-bottom: 0;
+    }
+
+    & + .subtitle {
+        margin-top: 0.5em;
+    }
+}

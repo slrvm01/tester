@@ -1,0 +1,85 @@
+@import "../common/variables";
+
+@mixin _input_focus() {
+    box-shadow: 0 1px 2px 1px rgba(#000, 0.1);
+}
+
+.input, .textarea, .select, .submit {
+    width: 100%;
+    margin: 0.5em 0;
+    padding: 1em;
+    border: 1px solid $color_input_border;
+    border-radius: 0.25em;
+    transition: all 100ms ease-in-out;
+
+    &:focus {
+        @include _input_focus();
+    }
+}
+
+.select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: transparent;
+    cursor: pointer;
+
+    &:focus {
+        color: $color_input_text;
+    }
+}
+
+.submit {
+    background-color: $color_green;
+    color: $color_text_light;
+    cursor: pointer;
+
+    &:hover {
+        background-color: darken($color_green, 10);
+    }
+
+    &:active {
+        @include _input_focus();
+    }
+}
+
+.input-wrapper, .select-wrapper {
+    width: 100%;
+    position: relative;
+
+    &.input-error {
+        .input, .textarea, .select {
+            border-color: $color_red;
+        }
+    }
+
+    .error-text {
+        position: absolute;
+        bottom: 0;
+        color: $color_red;
+        margin: 0 0.5em;
+        padding: 0 0.5em;
+        font-size: 0.9em;
+        line-height: 1.5em;
+        background-color: $color_bg;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+}
+
+.select-wrapper {
+    position: relative;
+
+    &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 0.75em;
+        height: 0.75em;
+        top: calc(50% - 0.75em);
+        right: 1em;
+        border-right: 0.15em solid $color_input_border;
+        border-bottom: 0.15em solid $color_input_border;
+        transform: rotate(45deg);
+    }
+}

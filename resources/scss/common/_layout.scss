@@ -1,0 +1,19 @@
+@import "../common/variables";
+
+.content {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &-wrapper {
+        width: 90%;
+        max-width: 768px;
+        margin: 1em;
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        justify-content: center;
+    }
+}
